@@ -1,0 +1,3 @@
+jnp.set_printoptions(linewidth=200)
+onp.set_printoptions(linewidth=200)
+

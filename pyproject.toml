@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equivariant_ntk"
+version = "0.1.0"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "neural-tangents>=0.6.5",
+    "jax[cuda12]<0.5.3",
+    "numpy<2.0.0",
+    "s2fft",
+]
+authors = [
+    {name = "Philipp Misof"},
+    {name = "Pan Kessel"},
+    {name = "Jan Gerken"},
+]
+description = "Equivariant Neural Tangents Kernels"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+examples = [
+    "plotly",
+    "tensorflow_datasets",
+    "pandas",
+    "kaleido",
+    "ipykernel>=7.2.0",
+    "matplotlib>=3.10.8",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+    "nbformat>=5.10.4",
+    "anywidget>=0.9.21",
+]
+
+[project.urls]
+icml_article = "https://proceedings.mlr.press/v267/misof25a.html"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "tests", "src",
+]
+filterwarnings = [
+    'ignore:.*Gimbal lock detected.*:UserWarning',
+    'ignore:.*jax.core.* is deprecated.*:DeprecationWarning'
+]
